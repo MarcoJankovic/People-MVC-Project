@@ -1,0 +1,27 @@
+﻿@model List<People>
+@{
+    ViewData["Title"] = "Human";
+}
+
+
+<h1>Human</h1>
+
+<a asp-action="Create">Add a Human</a>
+
+<div class="row">
+
+    <div class="col-4 dez">Name</div>
+    <div class="col-4 dez">Phone</div>
+    <div class="col-4 dez">City</div>
+
+</div>
+@foreach (People people in Model)
+{
+    <div class="row">
+
+        <div class="col-4">@people.PersonName</div>
+        <div class="col-4">@people.Phone</div>
+        <div class="col-4">@people.City</div>
+        <div>@Html.ActionLink("Details","Details","People", new {id = people.Id})</div>
+    </div>
+}

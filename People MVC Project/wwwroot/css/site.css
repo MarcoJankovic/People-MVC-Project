@@ -1,0 +1,59 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background-image: url("/Img/2948686.jpg");
+    background-size: auto;
+    background-repeat: no-repeat;
+}
+
+.navbar {
+    background: #1d8a86 !important;
+}
+
+
+h1{
+    color:white;
+}
+
+h4 {
+    color: white;
+}
+
+a{
+    color:white !important;
+    text-decoration:none;
+}
+
+.dez{
+    color:blanchedalmond !important;
+}
+
+.col-4 {
+    color:red;
+}
+
+p{
+    color:white;
+}
+
+.control-label{
+    color:white;
+}
+
+form {
+    padding:30px;
+}
