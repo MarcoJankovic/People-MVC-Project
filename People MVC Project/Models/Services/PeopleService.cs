@@ -52,5 +52,15 @@ namespace People_MVC_Project.Models.Services
         {
             throw new NotImplementedException();
         }
+
+        public People? LastAdded()
+        {
+            List<People> people = _peoplesRepo.GettAll();
+            if(people.Count < 1)
+            {
+                return null;
+            }
+            return people.Last();
+        }
     }
 }

@@ -1,0 +1,13 @@
+﻿@model People
+@{
+    ViewData["Title"] = "_PeopleRow";
+}
+
+<div class="row">
+
+    <div class="col-4">@Model.PersonName</div>
+    <div class="col-4">@Model.Phone</div>
+    <div class="col-4">@Model.City</div>
+    <div>@Html.ActionLink("Details","Details","People", new {id = Model.Id})</div>
+
+</div>

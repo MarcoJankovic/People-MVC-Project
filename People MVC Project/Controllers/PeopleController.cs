@@ -54,5 +54,16 @@ namespace People_MVC_Project.Controllers
             }
             return View(people);
         }
+
+        public IActionResult LastPeopleArrival()
+        {
+            People people = _peopleService.LastAdded();
+
+            if(people != null)
+            {
+                return PartialView("_PeopleRow", people);
+            }
+            return NotFound();
+        }
     }
 }

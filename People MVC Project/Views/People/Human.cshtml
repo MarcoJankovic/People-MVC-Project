@@ -17,11 +17,12 @@
 </div>
 @foreach (People people in Model)
 {
-    <div class="row">
+    @*    <div class="row">
 
         <div class="col-4">@people.PersonName</div>
         <div class="col-4">@people.Phone</div>
         <div class="col-4">@people.City</div>
         <div>@Html.ActionLink("Details","Details","People", new {id = people.Id})</div>
-    </div>
+    </div>*@
+    <partial name="_PeopleRow" model="people"></partial>
 }
