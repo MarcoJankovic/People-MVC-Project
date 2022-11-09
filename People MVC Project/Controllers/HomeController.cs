@@ -1,14 +1,24 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using People_MVC_Project.Models;
+using People_MVC_Project.Models.Repos;
+using People_MVC_Project.Models.Services;
 using System.Diagnostics;
 
 namespace People_MVC_Project.Controllers
 {
+
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        private readonly IPeopleService _peopleService;
+
+        public HomeController()
         {
-            return View();
+            _peopleService = new PeopleService(new InMemoryRepo());
+        }
+
+       public IActionResult Index()
+        {
+            return View(_peopleService.LastAdded());
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

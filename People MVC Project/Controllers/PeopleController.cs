@@ -59,11 +59,12 @@ namespace People_MVC_Project.Controllers
         {
             People people = _peopleService.LastAdded();
 
-            if(people != null)
+            if (people != null)
             {
                 return PartialView("_PeopleRow", people);
             }
             return NotFound();
         }
+    
     }
 }
