@@ -25,6 +25,18 @@ body {
 }
 
 
+ul {
+    color:red !important;
+}
+
+li {
+    color: red !important;
+}
+
+.text-danger {
+    color:red !important;
+}
+
 h1{
     color:white;
 }
@@ -73,4 +85,10 @@ dl {
 
 dt {
     color:red;
+}
+
+
+.SearchFlex{
+    display:flex;
+    justify-content:space-between;
 }
