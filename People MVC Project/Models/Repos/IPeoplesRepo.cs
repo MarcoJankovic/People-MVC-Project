@@ -17,7 +17,7 @@ namespace People_MVC_Project.Models.Repos
         People GetById(int id);
 
         // U
-        void Update(People people);
+        public void Update(People people);
 
         // D
         public void Delete(People people)
