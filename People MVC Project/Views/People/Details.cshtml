@@ -5,14 +5,17 @@
 
 <h1>Details</h1>
 
-<dl>
-    <dt>Person</dt>
-    <dd>@Model.PersonName</dd>
 
-    <dt>Phone</dt>
-    <dd>@Model.Phone</dd>
 
-    <dt>City</dt>
-    <dd>@Model.City</dd>
-</dl>
-<a asp-action="Human" asp-controller="People">Go back!</a>
+    <dl>
+        <dt>Person</dt>
+        <dd>@Model.Name</dd>
+
+        <dt>Age</dt>
+        <dd>@Model.Age</dd>
+
+        <dt>City</dt>
+        <dd>@Model.City</dd>
+        <a asp-action="Human" class="btn btn-danger" style="width:100px; padding:2px; asp-controller="People">Back</a>
+    </dl>
+

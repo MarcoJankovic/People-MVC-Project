@@ -15,6 +15,7 @@ namespace People_MVC_Project.Controllers
         {
             _peopleService = new PeopleService(new InMemoryRepo());
         }
+
         public IActionResult Human()
         {
             return View(_peopleService.GetAll());
@@ -25,6 +26,7 @@ namespace People_MVC_Project.Controllers
         {
             return View(new CreatePeopleViewModel());
         }
+
         [HttpPost]
         [AutoValidateAntiforgeryToken]
         public IActionResult Create(CreatePeopleViewModel createPeople)
@@ -38,7 +40,7 @@ namespace People_MVC_Project.Controllers
                 catch (ArgumentException ex)
                 {
                     // Add our own message
-                    ModelState.AddModelError("People & City", ex.Message);
+                    ModelState.AddModelError("Name", ex.Message);
                     return View(createPeople);
                 }
                 return RedirectToAction(nameof(Human));
@@ -65,6 +67,12 @@ namespace People_MVC_Project.Controllers
             }
             return NotFound();
         }
-    
+
+
+        public IActionResult Delete(int id)
+        {
+            _peopleService.Remove(id);
+            return RedirectToAction(nameof(Human));
+        }
     }
 }

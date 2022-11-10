@@ -1,5 +1,7 @@
-﻿using People_MVC_Project.Models.Repos;
+﻿using Microsoft.AspNetCore.Identity;
+using People_MVC_Project.Models.Repos;
 using People_MVC_Project.Models.ViewModels;
+using System;
 
 namespace People_MVC_Project.Models.Services
 
@@ -15,14 +17,16 @@ namespace People_MVC_Project.Models.Services
 
         public People Create(CreatePeopleViewModel createPeople)
         {
-            if (string.IsNullOrWhiteSpace(createPeople.PersonName) || string.IsNullOrWhiteSpace(createPeople.Phone) || string.IsNullOrWhiteSpace(createPeople.City))
+            var nullOrWhite = string.IsNullOrWhiteSpace;
+
+            if (nullOrWhite(createPeople.Name) || nullOrWhite(createPeople.Age.ToString()) || nullOrWhite(createPeople.City))
             {
-                throw new ArgumentException("PersonName, Phone and City. Not allowed whitespace");
+                throw new ArgumentException("Name is not allowed whitespace");
             }
             People people = new People()
             {
-                PersonName = createPeople.PersonName,
-                Phone = createPeople.Phone,
+                Name = createPeople.Name,
+                Age = createPeople.Age,
                 City = createPeople.City
             };
             people = _peoplesRepo.Create(people);
@@ -50,13 +54,18 @@ namespace People_MVC_Project.Models.Services
 
         public void Remove(int id)
         {
-            throw new NotImplementedException();
+            foreach (People person in InMemoryRepo.peoplesList)
+                if (id == person.Id)
+                {
+                    InMemoryRepo.peoplesList.Remove(person);
+                    break;
+                }
         }
 
         public People? LastAdded()
         {
             List<People> people = _peoplesRepo.GettAll();
-            if(people.Count < 1)
+            if (people.Count < 1)
             {
                 return null;
             }

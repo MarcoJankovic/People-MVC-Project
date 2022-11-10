@@ -1,9 +1,11 @@
-﻿namespace People_MVC_Project.Models.Repos
+﻿using System;
+
+namespace People_MVC_Project.Models.Repos
 {
     public class InMemoryRepo : IPeoplesRepo
     {
-        static int idCounter = 0;
-        static List<People> peoplesList = new List<People>();
+        public static int idCounter = 0;
+        public static List<People> peoplesList = new List<People>();
 
         public People Create(People people)
         {
@@ -49,15 +51,20 @@
             People orginalPeople = GetById(people.Id);
             if (orginalPeople != null)
             {
-                orginalPeople.PersonName = people.PersonName;
-                orginalPeople.Phone = people.Phone;
+                orginalPeople.Name = people.Name;
+                orginalPeople.Age = people.Age;
                 orginalPeople.City = people.City;
             }
         }
 
         public void Delete(People people)
         {
-            if (people != null) { peoplesList.Remove(people); }
+            foreach (People person in InMemoryRepo.peoplesList)
+                if (people.Id == person.Id)
+                {
+                    InMemoryRepo.peoplesList.Remove(person);
+                    break;
+                }
         }
     }
 }

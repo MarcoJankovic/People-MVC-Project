@@ -6,10 +6,10 @@ namespace People_MVC_Project.Models.ViewModels
     {
         [Display(Name = "Name")]
         [Required]
-        public string? PersonName { get; set; }
+        public string? Name { get; set; }
         [Required]
-        public string? Phone { get; set; }
-        [StringLength(10, MinimumLength = 1)]
+        [Range(1, 110, ErrorMessage = "Please enter valid integer Number 1 - 110")]
+        public int? Age { get; set; }
         [Required]
 
         public string? City { get; set; }
@@ -19,7 +19,7 @@ namespace People_MVC_Project.Models.ViewModels
         {
             get
             {
-                return new List<string> { "Stockholm", "Copenhagen", "Oslo", "Berlin", "Paris", " Madrid", "Moscow" };
+                return new List<string> { "Stockholm", "London", "Oslo", "Copenhagen", "Moscow", "Paris", "Berlin", "Madrid", "Warsaw", "Helsinki", "Tokyo", "Beijing" };
             }
         }
     }

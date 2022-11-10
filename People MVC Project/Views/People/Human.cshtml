@@ -6,14 +6,13 @@
 
 <h1>Human</h1>
 
-<a asp-action="Create">Add a Human</a>
+<a asp-action="Create" class="btn btn-success" style="width:100px; padding:2px; margin-bottom:30px;">Add Person</a>
 
 <div class="row">
 
-    <div class="col-4 dez">Name</div>
-    <div class="col-4 dez">Phone</div>
-    <div class="col-4 dez">City</div>
-
+    <div class="col-2 dez">Name</div>
+    <div class="col-2 dez">Age</div>
+    <div class="col-2 dez">City</div>
 </div>
 @foreach (People people in Model)
 {
@@ -26,3 +25,5 @@
     </div>*@
     <partial name="_PeopleRow" model="people"></partial>
 }
+
+<a class="btn btn-danger" style="width:100px; padding:2px; margin-top:30px;" asp-area="" asp-controller="Home" asp-action="Index">Back</a>

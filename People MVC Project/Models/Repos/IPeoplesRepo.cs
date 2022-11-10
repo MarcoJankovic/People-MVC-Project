@@ -1,4 +1,8 @@
-﻿namespace People_MVC_Project.Models.Repos
+﻿using System;
+using People_MVC_Project.Models.Repos;
+
+
+namespace People_MVC_Project.Models.Repos
 {
     public interface IPeoplesRepo
     {
@@ -16,8 +20,14 @@
         void Update(People people);
 
         // D
-        void Delete(People people);
-
-  
+        public void Delete(People people)
+        {
+            foreach (People person in InMemoryRepo.peoplesList)
+                if (people.Id == person.Id)
+                {
+                    InMemoryRepo.peoplesList.Remove(person);
+                    break;
+                }       
+        } 
     }
 }
