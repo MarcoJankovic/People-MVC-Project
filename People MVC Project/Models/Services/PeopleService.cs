@@ -58,7 +58,7 @@ namespace People_MVC_Project.Models.Services
             people = _peoplesRepo.Create(people);         
         }
 
-        public void Remove(int id)
+        public bool Remove(int id)
         {
             foreach (People person in InMemoryRepo.peoplesList)
                 if (id == person.Id)
@@ -66,6 +66,7 @@ namespace People_MVC_Project.Models.Services
                     InMemoryRepo.peoplesList.Remove(person);
                     break;
                 }
+            return true;
         }
 
         public People? LastAdded()

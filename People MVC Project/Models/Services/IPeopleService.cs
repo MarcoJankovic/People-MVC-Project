@@ -15,7 +15,7 @@ namespace People_MVC_Project.Models.Services
         public void Edit(int id, CreatePeopleViewModel editPeople) { 
 
         }
-        public void Remove(int id);
+        public bool Remove(int id);
 
         People LastAdded();
     }
