@@ -5,10 +5,10 @@
 
 <div class="row" style="color:white; background:gray;">
 
-    <div class="col-2" style="border:1px solid black; ">@Model.Name</div>
+    <div class="col-3" style="border:1px solid black; ">@Model.Name</div>
     <div class="col-2" style="border:1px solid black;">@Model.Age</div>
     <div class="col-2" style="border:1px solid black;">@Model.City</div>
-    <div class="col-6" style="border:1px solid black;">
+    <div class="col-5" style="border:1px solid black;">
         <div class="btn btn-primary" style="width:100px; padding:2px; margin:4px;">@Html.ActionLink("Details","Details","People", new {id = Model.Id})</div>
         <div class="btn btn-success" style="width:100px; padding:2px;">@Html.ActionLink("Edit","Edit","People", new {id = Model.Id})</div>
         <div class="btn btn-danger" style="width:100px; padding:2px;">@Html.ActionLink("Delete","Delete","People", new {id = Model.Id})</div>

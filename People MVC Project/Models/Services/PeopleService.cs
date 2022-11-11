@@ -49,7 +49,13 @@ namespace People_MVC_Project.Models.Services
 
         public void Edit(int id, CreatePeopleViewModel editPeople)
         {
-            throw new NotImplementedException();
+            People people = new People()
+            {
+                Name = editPeople.Name,
+                Age = editPeople.Age,
+                City = editPeople.City
+            };
+            people = _peoplesRepo.Create(people);         
         }
 
         public void Remove(int id)

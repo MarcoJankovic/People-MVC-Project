@@ -17,7 +17,16 @@ namespace People_MVC_Project.Models.Repos
         People GetById(int id);
 
         // U
-        public void Update(People people);
+        public void Update(People people)
+        {
+            People orginalPeople = GetById(people.Id);
+            if (orginalPeople != null)
+            {
+                orginalPeople.Name = people.Name;
+                orginalPeople.Age = people.Age;
+                orginalPeople.City = people.City;
+            }
+        }
 
         // D
         public void Delete(People people)

@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -8,12 +7,14 @@
 
 </div>
 
-@if(Model != null)
+@if (Model != null)
 {
-    <h3 style="color:white;">Last Human Created</h3>
-
+    <div class="row" style="color:white; border:1px solid black; background-color:darkslategrey;">
+        <h3 style="color:white;">Last Human Created</h3>
+    </div>
     <partial name="_PeopleRow" model="Model"></partial>
 }
-else{
-    <h3 style="color:white;"> Be the first to name the human</h3>
+else
+{
+    <h3 style="color:white;"> Be a god and create your first human!</h3>
 }
